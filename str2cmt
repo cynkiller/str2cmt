@@ -37,7 +37,7 @@ def str2cmt(string, style = 'python', fill = '#'):
     output = [''] * (ROWHIGHT + 2)
     for i in range(ROWHIGHT + 2):
         output[i] += startLetter
-        if i == 0 or i == 8:
+        if i == 0 or i == ROWHIGHT + 1:
             output[i] += '-'
         else:
             output[i] += ' '
@@ -47,9 +47,9 @@ def str2cmt(string, style = 'python', fill = '#'):
         if letter not in DATABASE.keys():
             print("Letter %s not found in database!" % letter)
             continue
-        output[0] += '-' * 7
-        output[-1] += '-' * 7
-        for i in range(1, 8):
+        output[0] += '-' * ROWHIGHT
+        output[-1] += '-' * ROWHIGHT
+        for i in range(1, ROWHIGHT + 1):
             output[i] += DATABASE[letter][i - 1].replace('#', fill) + ' '
     
     print('\n'.join(output))
